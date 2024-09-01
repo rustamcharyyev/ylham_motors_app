@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ylham_motors/auth/auth.dart';
+import 'package:ylham_motors/l10n/l10n.dart';
 import 'package:ylham_motors/navigation/navigation.dart';
 
 class OtpVerifyPage extends StatelessWidget {
@@ -31,7 +32,7 @@ class OtpVerifyPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Otp verification"),
+          title: Text(context.l10n.otpVerification),
         ),
         body: OtpVerifyContent(phone: phone),
       ),

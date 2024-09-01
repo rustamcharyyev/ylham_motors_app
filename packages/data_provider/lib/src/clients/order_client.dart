@@ -26,4 +26,11 @@ class OrderClient {
     );
     return response.data;
   }
+
+  Future<OrderListResponse> getOrders() async {
+    final response = await _http.get<Map<String, dynamic>>(
+      '/users/me/orders',
+    );
+    return OrderListResponse.fromMap(response.data!);
+  }
 }

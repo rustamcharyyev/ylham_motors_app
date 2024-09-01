@@ -7,7 +7,7 @@ part of 'slider_item.dart';
 // **************************************************************************
 
 SliderItem _$SliderItemFromJson(Map<String, dynamic> json) => SliderItem(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       image: json['image'] as String?,
     );
 

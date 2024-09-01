@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ylham_motors/cart/cart.dart';
+import 'package:ylham_motors/l10n/l10n.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -17,7 +18,7 @@ class CartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sebet'),
+        title: Text(context.l10n.cart),
       ),
       body: const CartContent(),
     );

@@ -105,5 +105,12 @@
     "register": "Hasap döretmek",
 
     "submit": "Tassykla",
-    "continueT": "Dowam et"
+    "continueT": "Dowam et",
+
+    "categories": "Kategoriýalar",
+    "brands": "Brendler",
+    "products": "Harytlar",
+    "otpVerification": "OTP tassyklamasy",
+    "checkOut": "Töleg",
+    "masters": "Ussalar"
 }

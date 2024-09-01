@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:ylham_motors/addresses/addresses.dart';
+import 'package:ylham_motors/l10n/l10n.dart';
 
 typedef AddressSelectCallback = void Function(AddressModel address);
 
@@ -26,7 +27,8 @@ class AddressesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AddressBloc, AddressState>(
-      listenWhen: (previous, current) => previous.selectedAddress != current.selectedAddress,
+      listenWhen: (previous, current) =>
+          previous.selectedAddress != current.selectedAddress,
       listener: (context, state) {
         if (state.selectedAddress == null) return;
         onAddressSelected?.call(state.selectedAddress!);
@@ -43,7 +45,7 @@ class AddressesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Addresses"),
+        title: Text(context.l10n.addresses),
         actions: [
           IconButton(
             onPressed: () {

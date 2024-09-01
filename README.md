@@ -15,3 +15,11 @@ flutter run
  - 3 category - motors, zapchaslar, ussa harytlar
  - ussalaryn ozlerine commentariya goyup bilmeli clientler
  - ads, banners
+
+## TODO(MerdanDev):
+ - Localization DONE(needs checks)
+ - Profile-de sargytlar bolumi DONE(needs ui improvment)
+ - Product page carousel images
+ - Product page description DONE(before)
+ - Product page similar products DONE()
+ - Product page share feature

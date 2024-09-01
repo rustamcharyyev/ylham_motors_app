@@ -1,6 +1,7 @@
 import 'package:data_provider/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ylham_motors/l10n/l10n.dart';
 import 'package:ylham_motors/products/products.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -45,7 +46,7 @@ class ProductsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Products'),
+        title: Text(context.l10n.products),
       ),
       body: const ProductsContent(),
     );

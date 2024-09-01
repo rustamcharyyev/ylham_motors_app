@@ -219,4 +219,22 @@ class AppLocalizationsTk extends AppLocalizations {
 
   @override
   String get continueT => 'Dowam et';
+
+  @override
+  String get categories => 'Kategoriýalar';
+
+  @override
+  String get brands => 'Brendler';
+
+  @override
+  String get products => 'Harytlar';
+
+  @override
+  String get otpVerification => 'OTP tassyklamasy';
+
+  @override
+  String get checkOut => 'Töleg';
+
+  @override
+  String get masters => 'Ussalar';
 }

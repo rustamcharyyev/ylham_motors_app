@@ -219,4 +219,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get continueT => 'Продолжать';
+
+  @override
+  String get categories => 'Категории';
+
+  @override
+  String get brands => 'Бренды';
+
+  @override
+  String get products => 'Продукты';
+
+  @override
+  String get otpVerification => 'OTP-верификация';
+
+  @override
+  String get checkOut => 'Оформление заказа';
+
+  @override
+  String get masters => 'Мастера';
 }

@@ -2,11 +2,8 @@ import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ylham_motors/app/app.dart';
-import 'package:ylham_motors/categories/categories.dart';
 import 'package:ylham_motors/home/home.dart';
 import 'package:ylham_motors/masters/masters.dart';
-import 'package:ylham_motors/detailed_product/detailed_product.dart';
-import 'package:ylham_motors/products/products.dart';
 import 'package:ylham_motors/slider/slider.dart';
 
 class HomeContent extends StatelessWidget {
@@ -17,48 +14,22 @@ class HomeContent extends StatelessWidget {
     final appSource = context.select((AppCubit cubit) => cubit.state.appSource);
     final sliders = context.select((HomeBloc bloc) => bloc.state.sliders);
     final categories = context.select((HomeBloc bloc) => bloc.state.categories);
-    final categoryProducts = context.select((HomeBloc bloc) => bloc.state.categoryProducts);
-    final isLoading = context.select((HomeBloc bloc) => bloc.state.status == HomeStatus.loading);
+    final categoryProducts =
+        context.select((HomeBloc bloc) => bloc.state.categoryProducts);
+    final isLoading = context
+        .select((HomeBloc bloc) => bloc.state.status == HomeStatus.loading);
 
     final categoryWidgets = categories.map((category) {
       final products = categoryProducts[category.id!];
 
-      if (products?.isEmpty ?? true) {
+      if (products == null || products.isEmpty) {
         return const SliverPadding(padding: EdgeInsets.zero);
       }
 
       return SliverToBoxAdapter(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
-              child: CategoriesItemCard(category: category),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.width - (AppSpacing.md * 1.5),
-              child: ListView.separated(
-                padding: const EdgeInsets.all(AppSpacing.md),
-                scrollDirection: Axis.horizontal,
-                itemCount: products!.length,
-                separatorBuilder: (_, __) => const SizedBox(width: AppSpacing.md),
-                itemBuilder: (context, index) {
-                  final product = products[index];
-                  return AspectRatio(
-                    aspectRatio: 0.51,
-                    child: ProductCard(
-                      product: product,
-                      onPressed: () => Navigator.of(context).push(
-                        DetailedProductPage.route(
-                          product: product,
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
+        child: CategoryHeaderProducts(
+          category: category,
+          products: products,
         ),
       );
     });

@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ylham_motors/cart/cart.dart';
 import 'package:ylham_motors/detailed_product/detailed_product.dart';
 import 'package:ylham_motors/favorites/favorites.dart';
+import 'package:ylham_motors/home/home.dart';
 import 'package:ylham_motors/products/products.dart';
 
 class DetailedProductContent extends StatelessWidget {
@@ -14,12 +15,22 @@ class DetailedProductContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product = context.read<DetailedProductCubit>().product;
+    final categories = context.select((HomeBloc bloc) => bloc.state.categories);
+    final categoryProducts =
+        context.select((HomeBloc bloc) => bloc.state.categoryProducts);
+
+    final category = categories.firstWhere(
+      (element) => element.id == product.category?.id,
+    );
+    final products = categoryProducts[category.id];
 
     final properties = [
       if (product.id != null) ('id', product.id),
       if (product.rating != null) ('rating', product.rating),
-      if (product.proportionalPrice != null) ('proportionalPrice', product.proportionalPrice),
-      if (product.discountedPrice != null) ('discountedPrice', product.discountedPrice),
+      if (product.proportionalPrice != null)
+        ('proportionalPrice', product.proportionalPrice),
+      if (product.discountedPrice != null)
+        ('discountedPrice', product.discountedPrice),
     ];
 
     return SingleChildScrollView(
@@ -86,8 +97,11 @@ class DetailedProductContent extends StatelessWidget {
                   flex: 10,
                   child: ProductActionButtons(
                     productId: product.id!,
-                    quantity: context.select((CartBloc bloc) => bloc.getProductQuantity(product.id)),
-                    onFavoritePressed: () => context.read<FavoritesBloc>().add(FavoriteButtonPressed(product)),
+                    quantity: context.select(
+                        (CartBloc bloc) => bloc.getProductQuantity(product.id)),
+                    onFavoritePressed: () => context
+                        .read<FavoritesBloc>()
+                        .add(FavoriteButtonPressed(product)),
                     onQuantityUpdated: (quantity) {
                       context.read<CartBloc>().add(
                             CartUpdateRequested(
@@ -121,7 +135,8 @@ class DetailedProductContent extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: properties.length,
-                    separatorBuilder: (context, index) => const Divider(color: Colors.white),
+                    separatorBuilder: (context, index) =>
+                        const Divider(color: Colors.white),
                     itemBuilder: (context, index) {
                       final (String key, dynamic value) = properties[index];
 
@@ -152,6 +167,13 @@ class DetailedProductContent extends StatelessWidget {
 
             ///GAP
             const SizedBox(height: AppSpacing.lg),
+
+            if (products != null && products.isNotEmpty)
+              CategoryHeaderProducts(category: category, products: products),
+
+            ///GAP
+            if (products != null && products.isNotEmpty)
+              const SizedBox(height: AppSpacing.lg),
           ],
         ),
       ),

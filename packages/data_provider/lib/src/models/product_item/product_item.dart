@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, lines_longer_than_80_chars
 
+import 'package:data_provider/data_provider.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -15,11 +16,15 @@ class ProductItem extends Equatable {
 
   final String? image;
 
+  final List<String>? images;
+
   final String? price;
 
   final int? count;
 
   final String? rating;
+
+  final CategoryItem? category;
 
   final double? discount;
 
@@ -41,9 +46,11 @@ class ProductItem extends Equatable {
     this.name,
     this.description,
     this.image,
+    this.images,
     this.price,
     this.count,
     this.rating,
+    this.category,
     this.discount,
     this.discountedPrice,
     this.action,
@@ -53,7 +60,8 @@ class ProductItem extends Equatable {
   });
 
   Map<String, dynamic> toJson() => _$ProductItemToJson(this);
-  factory ProductItem.fromJson(Map<String, dynamic> json) => _$ProductItemFromJson(json);
+  factory ProductItem.fromJson(Map<String, dynamic> json) =>
+      _$ProductItemFromJson(json);
 
   @override
   List<Object?> get props {
@@ -62,9 +70,11 @@ class ProductItem extends Equatable {
       name,
       description,
       image,
+      images,
       price,
       count,
       rating,
+      category,
       discount,
       discountedPrice,
       action,
@@ -79,9 +89,11 @@ class ProductItem extends Equatable {
     String? name,
     String? description,
     String? image,
+    List<String>? images,
     String? price,
     int? count,
     String? rating,
+    CategoryItem? category,
     double? discount,
     dynamic discountedPrice,
     bool? action,
@@ -94,9 +106,11 @@ class ProductItem extends Equatable {
       name: name ?? this.name,
       description: description ?? this.description,
       image: image ?? this.image,
+      images: images ?? this.images,
       price: price ?? this.price,
       count: count ?? this.count,
       rating: rating ?? this.rating,
+      category: category ?? this.category,
       discount: discount ?? this.discount,
       discountedPrice: discountedPrice ?? this.discountedPrice,
       action: action ?? this.action,

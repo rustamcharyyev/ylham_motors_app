@@ -9,10 +9,10 @@ part of 'get_product_list_query_parameters.dart';
 GetProductListQueryParameters _$GetProductListQueryParametersFromJson(
         Map<String, dynamic> json) =>
     GetProductListQueryParameters(
-      categoryId: json['category'] as int?,
-      brandId: json['brands'] as int?,
-      page: json['page'] as int?,
-      limit: json['limit'] as int?,
+      categoryId: (json['category'] as num?)?.toInt(),
+      brandId: (json['brands'] as num?)?.toInt(),
+      page: (json['page'] as num?)?.toInt(),
+      limit: (json['limit'] as num?)?.toInt(),
       search: json['keyword'] as String?,
     );
 

@@ -105,5 +105,12 @@
     "register": "Register",
 
     "submit": "Submit",
-    "continueT": "Continue"
+    "continueT": "Continue",
+
+    "categories": "Categories",
+    "brands": "Brands",
+    "products": "Products",
+    "otpVerification": "OTP verification",
+    "checkOut": "Check out",
+    "masters": "Masters"
 }

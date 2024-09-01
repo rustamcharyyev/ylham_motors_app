@@ -6,6 +6,7 @@ import 'package:ylham_motors/addresses/addresses.dart';
 import 'package:ylham_motors/auth/auth.dart';
 import 'package:ylham_motors/l10n/l10n.dart';
 import 'package:ylham_motors/language/language.dart';
+import 'package:ylham_motors/orders/orders.dart';
 
 class ProfileContent extends StatelessWidget {
   const ProfileContent({super.key});
@@ -72,6 +73,21 @@ class ProfileContent extends StatelessWidget {
           child: ListTile(
             leading: const PhosphorIcon(PhosphorIconsBold.mapPin),
             title: Text(context.l10n.addresses),
+            trailing: const PhosphorIcon(PhosphorIconsBold.caretCircleRight),
+          ),
+        ),
+
+        const SizedBox(height: AppSpacing.md),
+
+        /// Orders
+        AppCard(
+          onPressed: () {
+            Navigator.of(context).push(OrderListPage.route());
+          },
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            leading: const PhosphorIcon(PhosphorIconsBold.shoppingCart),
+            title: Text(context.l10n.orders),
             trailing: const PhosphorIcon(PhosphorIconsBold.caretCircleRight),
           ),
         ),

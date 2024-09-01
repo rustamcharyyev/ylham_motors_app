@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ylham_motors/cart/cart.dart';
 import 'package:ylham_motors/checkout/checkout.dart';
+import 'package:ylham_motors/l10n/l10n.dart';
 import 'package:ylham_motors/orders/orders.dart';
 
 class CheckoutPage extends StatelessWidget {
@@ -44,7 +45,7 @@ class CheckoutView extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Checkout'),
+          title: Text(context.l10n.checkOut),
         ),
         body: const CheckoutContent(),
       ),

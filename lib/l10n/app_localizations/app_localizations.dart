@@ -526,6 +526,42 @@ abstract class AppLocalizations {
   /// In tk, this message translates to:
   /// **'Dowam et'**
   String get continueT;
+
+  /// No description provided for @categories.
+  ///
+  /// In tk, this message translates to:
+  /// **'Kategoriýalar'**
+  String get categories;
+
+  /// No description provided for @brands.
+  ///
+  /// In tk, this message translates to:
+  /// **'Brendler'**
+  String get brands;
+
+  /// No description provided for @products.
+  ///
+  /// In tk, this message translates to:
+  /// **'Harytlar'**
+  String get products;
+
+  /// No description provided for @otpVerification.
+  ///
+  /// In tk, this message translates to:
+  /// **'OTP tassyklamasy'**
+  String get otpVerification;
+
+  /// No description provided for @checkOut.
+  ///
+  /// In tk, this message translates to:
+  /// **'Töleg'**
+  String get checkOut;
+
+  /// No description provided for @masters.
+  ///
+  /// In tk, this message translates to:
+  /// **'Ussalar'**
+  String get masters;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

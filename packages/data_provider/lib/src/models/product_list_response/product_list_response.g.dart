@@ -8,12 +8,12 @@ part of 'product_list_response.dart';
 
 ProductListResponse _$ProductListResponseFromJson(Map<String, dynamic> json) =>
     ProductListResponse(
-      currentPage: json['current_page'] as int?,
+      currentPage: (json['current_page'] as num?)?.toInt(),
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => ProductItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      from: json['from'] as int?,
-      to: json['to'] as int?,
+      from: (json['from'] as num?)?.toInt(),
+      to: (json['to'] as num?)?.toInt(),
       perPage: json['per_page'],
     );
 

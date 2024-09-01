@@ -35,9 +35,9 @@ class OrderRepository {
     }
   }
 
-  Future<dynamic> getOrders() async {
+  Future<OrderListResponse> getOrders() async {
     try {
-      // return await _orderClient();
+      return await _orderClient.getOrders();
     } catch (error, stackTrace) {
       Error.throwWithStackTrace(GetOrderListFailure(error), stackTrace);
     }

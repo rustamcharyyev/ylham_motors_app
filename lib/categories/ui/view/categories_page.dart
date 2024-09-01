@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ylham_motors/categories/categories.dart';
+import 'package:ylham_motors/l10n/l10n.dart';
 
 class CategoriesPage extends StatelessWidget {
   const CategoriesPage({super.key});
@@ -19,12 +20,12 @@ class CategoriesView extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Kategoriyalar'),
-          bottom: const TabBar(
+          title: Text(context.l10n.category),
+          bottom: TabBar(
             tabs: [
               // Tab(icon: PhosphorIcon(PhosphorIconsBold.circlesFour)),
-              Tab(text: "Categories"),
-              Tab(text: "Brands"),
+              Tab(text: context.l10n.categories),
+              Tab(text: context.l10n.brands),
             ],
           ),
         ),

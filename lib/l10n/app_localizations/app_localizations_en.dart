@@ -219,4 +219,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continueT => 'Continue';
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get brands => 'Brands';
+
+  @override
+  String get products => 'Products';
+
+  @override
+  String get otpVerification => 'OTP verification';
+
+  @override
+  String get checkOut => 'Check out';
+
+  @override
+  String get masters => 'Masters';
 }
