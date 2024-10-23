@@ -1,5 +1,6 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:data_provider/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +10,17 @@ import 'package:ylham_motors/favorites/favorites.dart';
 import 'package:ylham_motors/home/home.dart';
 import 'package:ylham_motors/products/products.dart';
 
-class DetailedProductContent extends StatelessWidget {
+class DetailedProductContent extends StatefulWidget {
   const DetailedProductContent({super.key});
+
+  @override
+  State<DetailedProductContent> createState() => _DetailedProductContentState();
+}
+
+class _DetailedProductContentState extends State<DetailedProductContent> {
+  int _current = 0;
+
+  final CarouselSliderController _controller = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +62,73 @@ class DetailedProductContent extends StatelessWidget {
               child: ClipRRect(
                 clipBehavior: Clip.hardEdge,
                 borderRadius: BorderRadius.circular(AppSpacing.md),
-                child: CachedNetworkImage(
-                  imageUrl: product.image ?? '',
-                  fit: BoxFit.cover,
-                  progressIndicatorBuilder: (_, __, progress) => Center(
-                    child: CircularProgressIndicator(value: progress.progress),
-                  ),
-                  errorWidget: (_, __, ___) => const Icon(Icons.error),
-                ),
+                child: product.images != null &&
+                        product.images!.isNotEmpty &&
+                        product.images!.length > 1
+                    ? CarouselSlider(
+                        items: product.images!
+                            .map(
+                              (e) => CachedNetworkImage(
+                                imageUrl: e,
+                                fit: BoxFit.cover,
+                                progressIndicatorBuilder: (_, __, progress) =>
+                                    Center(
+                                  child: CircularProgressIndicator(
+                                      value: progress.progress),
+                                ),
+                                errorWidget: (_, __, ___) =>
+                                    const Icon(Icons.error),
+                              ),
+                            )
+                            .toList(),
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          enlargeCenterPage: false,
+                          // aspectRatio: 2.0,
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              _current = index;
+                            });
+                          },
+                          viewportFraction: 1.0, // Full width images
+                          enableInfiniteScroll: true, // Infinite scroll
+                          autoPlayInterval: const Duration(seconds: 3),
+                        ),
+                      )
+                    : CachedNetworkImage(
+                        imageUrl: product.image ?? '',
+                        fit: BoxFit.cover,
+                        progressIndicatorBuilder: (_, __, progress) => Center(
+                          child: CircularProgressIndicator(
+                              value: progress.progress),
+                        ),
+                        errorWidget: (_, __, ___) => const Icon(Icons.error),
+                      ),
               ),
             ),
+
+            if (product.images != null && product.images!.isNotEmpty)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: product.images!.asMap().entries.map((entry) {
+                  return GestureDetector(
+                    onTap: () => _controller.animateToPage(entry.key),
+                    child: Container(
+                      width: 12.0,
+                      height: 12.0,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 4.0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: (Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white
+                                : Colors.black)
+                            .withOpacity(_current == entry.key ? 0.9 : 0.4),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
 
             const SizedBox(height: AppSpacing.md),
 

@@ -18,8 +18,8 @@ flutter run
 
 ## TODO(MerdanDev):
  - Localization DONE(needs checks)
- - Profile-de sargytlar bolumi DONE(needs ui improvment)
- - Product page carousel images
+ - Profile-de sargytlar bolumi DONE(needs ui improvement)
+ - Product page carousel images DONE(needs ui improvement)
  - Product page description DONE(before)
  - Product page similar products DONE()
  - Product page share feature
