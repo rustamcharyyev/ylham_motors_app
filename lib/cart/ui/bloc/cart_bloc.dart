@@ -21,7 +21,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   final CartRepository _cartRepository;
 
   int getProductQuantity(int? productId) {
-    return state.cart?.items?.where((e) => e.productId == productId).firstOrNull?.quantity ?? 0;
+    return state.cart?.items
+            ?.where((e) => e.productId == productId)
+            .firstOrNull
+            ?.quantity ??
+        0;
   }
 
   FutureOr<void> _onInitRequested(
@@ -46,7 +50,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         cart: cartResponse.data,
       ));
     } catch (error, stackTrace) {
-      emit(state.copyWith(status: CartStatus.loadingFailure));
+      emit(CartState(
+        status: CartStatus.loadingFailure,
+        cart: null,
+      ));
       addError(error, stackTrace);
     }
   }

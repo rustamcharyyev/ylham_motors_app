@@ -101,6 +101,8 @@
     "favorites": "Halanlarym",
 
     "authenticationPage": "Agza bolmak sahypasy",
+    "authRequired": "Ulanjy tassyklanmaly",
+    "authRequiredDescription": "Bu mümkünçilikden peýdalanmak üçin siz ulgama girmeli. Ulgama girmegiňizi haýyş edýäris.",
     "login": "Agza bolmak",
     "register": "Hasap döretmek",
 

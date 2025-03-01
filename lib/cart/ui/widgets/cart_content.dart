@@ -10,7 +10,8 @@ class CartContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = context.select((CartBloc bloc) => bloc.state.cart);
-    final isCartEmpty = context.select((CartBloc bloc) => bloc.state.isCartEmpty);
+    final isCartEmpty =
+        context.select((CartBloc bloc) => bloc.state.isCartEmpty);
 
     /// CART EMPTY
     if (isCartEmpty) return const CartEmpty();
@@ -18,13 +19,22 @@ class CartContent extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: ListView.separated(
-            padding: const EdgeInsets.all(AppSpacing.md),
-            itemCount: cart?.items?.length ?? 0,
-            itemBuilder: (context, index) {
-              return CartItemCard(cartItem: cart!.items![index]);
+          child: RefreshIndicator(
+            onRefresh: () async {
+              BlocProvider.of<CartBloc>(
+                context,
+                listen: false,
+              ).add(CartRequested());
             },
-            separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
+            child: ListView.separated(
+              padding: const EdgeInsets.all(AppSpacing.md),
+              itemCount: cart?.items?.length ?? 0,
+              itemBuilder: (context, index) {
+                return CartItemCard(cartItem: cart!.items![index]);
+              },
+              separatorBuilder: (_, __) =>
+                  const SizedBox(height: AppSpacing.md),
+            ),
           ),
         ),
 

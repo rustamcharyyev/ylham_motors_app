@@ -39,15 +39,15 @@ class ProductCard extends StatelessWidget {
                 const SizedBox(height: 8.0),
                 Text(product.name ?? '',
                     style: const AppTextStyle.text().sm().semiBold()),
-                const SizedBox(height: 8.0),
-                Expanded(
-                  child: Text(
-                    product.description ?? '',
-                    style: const AppTextStyle.text().xs().medium(),
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
+                // const SizedBox(height: 8.0),
+                // Expanded(
+                //   child: Text(
+                //     product.description ?? '',
+                //     style: const AppTextStyle.text().xs().medium(),
+                //     maxLines: 3,
+                //     overflow: TextOverflow.ellipsis,
+                //   ),
+                // ),
                 const SizedBox(height: 8.0),
                 FittedBox(
                   child: Row(

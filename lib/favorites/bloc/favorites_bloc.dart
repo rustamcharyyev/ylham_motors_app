@@ -49,7 +49,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
         hasMoreContent: content.isNotEmpty,
       ));
     } catch (error, stackTrace) {
-      emit(state.copyWith(status: FavoritesStatus.failure));
+      emit(FavoritesState(status: FavoritesStatus.failure));
       addError(error, stackTrace);
     } finally {
       _isFetching = false;

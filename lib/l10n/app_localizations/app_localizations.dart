@@ -9,6 +9,8 @@ import 'app_localizations_en.dart';
 import 'app_localizations_ru.dart';
 import 'app_localizations_tk.dart';
 
+// ignore_for_file: type=lint
+
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
 ///
@@ -502,6 +504,18 @@ abstract class AppLocalizations {
   /// In tk, this message translates to:
   /// **'Agza bolmak sahypasy'**
   String get authenticationPage;
+
+  /// No description provided for @authRequired.
+  ///
+  /// In tk, this message translates to:
+  /// **'Ulanjy tassyklanmaly'**
+  String get authRequired;
+
+  /// No description provided for @authRequiredDescription.
+  ///
+  /// In tk, this message translates to:
+  /// **'Bu mümkünçilikden peýdalanmak üçin siz ulgama girmeli. Ulgama girmegiňizi haýyş edýäris.'**
+  String get authRequiredDescription;
 
   /// No description provided for @login.
   ///

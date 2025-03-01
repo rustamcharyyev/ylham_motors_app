@@ -101,6 +101,8 @@
     "favorites": "Favorites",
 
     "authenticationPage": "Authentication page",
+    "authRequired": "Authentication Required",
+    "authRequiredDescription": "This function requires authentication. Please enter your credentials.",
     "login": "Login",
     "register": "Register",
 

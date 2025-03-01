@@ -2,6 +2,7 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ylham_motors/auth/auth.dart';
 import 'package:ylham_motors/favorites/favorites.dart';
 import 'package:ylham_motors/products/products.dart';
 
@@ -21,13 +22,29 @@ class ProductActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isFavorite = context.select((FavoritesBloc bloc) => bloc.state.isProductFavorited(productId));
+    final isFavorite = context.select(
+        (FavoritesBloc bloc) => bloc.state.isProductFavorited(productId));
     final color = isFavorite ? Colors.orange : Colors.grey.shade800;
 
     return Row(
       children: [
         IconButton.outlined(
-          onPressed: () => onFavoritePressed(),
+          onPressed: () {
+            {
+              final state = BlocProvider.of<AuthenticationBloc>(
+                context,
+                listen: false,
+              ).state;
+              if (state.status == AuthenticationStatus.success) {
+                onFavoritePressed();
+              } else {
+                showDialog(
+                  context: context,
+                  builder: (context) => AuthDialog(),
+                );
+              }
+            }
+          },
           color: color,
           style: IconButton.styleFrom(
             shape: RoundedRectangleBorder(
@@ -48,7 +65,20 @@ class ProductActionButtons extends StatelessWidget {
         Expanded(
           child: quantity == 0
               ? AppButton.icon(
-                  onPressed: () => onQuantityUpdated(1),
+                  onPressed: () {
+                    final state = BlocProvider.of<AuthenticationBloc>(
+                      context,
+                      listen: false,
+                    ).state;
+                    if (state.status == AuthenticationStatus.success) {
+                      onQuantityUpdated(1);
+                    } else {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AuthDialog(),
+                      );
+                    }
+                  },
                   icon: const Icon(Icons.shopping_cart_rounded),
                 )
               : ProductQuantityCounter(

@@ -16,7 +16,8 @@ class OtpVerifyContent extends HookWidget {
   Widget build(BuildContext context) {
     final otpController = useTextEditingController();
 
-    final isLoading = context.select((AuthenticationBloc bloc) => bloc.state.status == AuthenticationStatus.loading);
+    final isLoading = context.select((AuthenticationBloc bloc) =>
+        bloc.state.status == AuthenticationStatus.loading);
 
     return ListView(
       shrinkWrap: true,
@@ -24,9 +25,9 @@ class OtpVerifyContent extends HookWidget {
       padding: const EdgeInsets.all(AppSpacing.md),
       children: [
         /// Phone number
-        const PhoneInput(
+        PhoneInput(
           readOnly: true,
-          initialValue: "64530230",
+          initialValue: phone,
         ),
 
         const SizedBox(height: AppSpacing.md),

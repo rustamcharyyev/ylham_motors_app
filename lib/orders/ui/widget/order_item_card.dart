@@ -23,7 +23,7 @@ class OrderItemCard extends StatelessWidget {
           Text('${context.l10n.totalCost}: ${order.totalPrice}'),
           Text('Product amount: ${order.productsAmount}'),
           SizedBox(
-            height: 320,
+            height: 340,
             width: double.maxFinite,
             child: HorizontalProductList(products: order.products),
           ),

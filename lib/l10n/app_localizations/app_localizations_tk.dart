@@ -1,5 +1,7 @@
 import 'app_localizations.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for Turkmen (`tk`).
 class AppLocalizationsTk extends AppLocalizations {
   AppLocalizationsTk([String locale = 'tk']) : super(locale);
@@ -207,6 +209,12 @@ class AppLocalizationsTk extends AppLocalizations {
 
   @override
   String get authenticationPage => 'Agza bolmak sahypasy';
+
+  @override
+  String get authRequired => 'Ulanjy tassyklanmaly';
+
+  @override
+  String get authRequiredDescription => 'Bu mümkünçilikden peýdalanmak üçin siz ulgama girmeli. Ulgama girmegiňizi haýyş edýäris.';
 
   @override
   String get login => 'Agza bolmak';

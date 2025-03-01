@@ -23,7 +23,7 @@ void main() {
   }) async {
     /// Constants
     // const defaultLanguage = 'en';
-    const defaultBaseUrl = 'http://216.250.12.89/api/v1'; // Env.serverUrl;
+    const defaultBaseUrl = 'https://ylhamly.com.tm/api/v1'; // Env.serverUrl;
 
     /// Storages
     // final tokenStorage = InMemoryTokenStorage();
@@ -36,7 +36,7 @@ void main() {
       tokenStorage.saveToken('63|jOy8lcSo7RmsFOp0K5MO6M5GXovEFyWPFQLtoTL2');
       // tokenStorage.saveToken('58|KuJIYk7d9pJjsKKwdG5JUFySFqBepeNo3PxDmZPF');
     }
-    // const secureoStorage = SecureStorage();
+    const secureoStorage = SecureStorage();
 
     /// intialization of package_info
     // final packageInfo = await PackageInfo.fromPlatform();

@@ -145,6 +145,7 @@ class _AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Ylham motors',
       debugShowCheckedModeBanner: false,
       theme: const AppTheme().themeData,
       localizationsDelegates: const [

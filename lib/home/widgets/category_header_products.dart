@@ -24,7 +24,7 @@ class CategoryHeaderProducts extends StatelessWidget {
           child: CategoriesItemCard(category: category),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width - (AppSpacing.md * 1.5),
+          height: 340,
           child: HorizontalProductList(products: products),
         ),
       ],

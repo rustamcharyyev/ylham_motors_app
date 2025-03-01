@@ -19,7 +19,7 @@ class HorizontalProductList extends StatelessWidget {
       itemBuilder: (context, index) {
         final product = products[index];
         return AspectRatio(
-          aspectRatio: 0.51,
+          aspectRatio: 180 / 340,
           child: ProductCard(
             product: product,
             onPressed: () => Navigator.of(context).push(

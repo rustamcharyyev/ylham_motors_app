@@ -1,5 +1,7 @@
 import 'app_localizations.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for Russian (`ru`).
 class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
@@ -207,6 +209,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get authenticationPage => 'Страница аутентификации';
+
+  @override
+  String get authRequired => 'Требуется аутентификация';
+
+  @override
+  String get authRequiredDescription => 'Эта функция требует аутентификации. Введите свои учетные данные.';
 
   @override
   String get login => 'Войти';

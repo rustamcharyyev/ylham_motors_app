@@ -9,6 +9,8 @@ sealed class AuthenticationEvent extends Equatable {
 
 final class AuthenticationUserRequested extends AuthenticationEvent {}
 
+final class LogoutRequested extends AuthenticationEvent {}
+
 final class AuthenticationVerifyRequested extends AuthenticationEvent {
   final String phone;
   final String otp;

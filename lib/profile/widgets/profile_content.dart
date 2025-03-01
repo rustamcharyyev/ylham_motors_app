@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:ylham_motors/addresses/addresses.dart';
 import 'package:ylham_motors/auth/auth.dart';
+import 'package:ylham_motors/cart/cart.dart';
+import 'package:ylham_motors/favorites/bloc/favorites_bloc.dart';
 import 'package:ylham_motors/l10n/l10n.dart';
 import 'package:ylham_motors/language/language.dart';
 import 'package:ylham_motors/orders/orders.dart';
@@ -33,7 +35,22 @@ class ProfileContent extends StatelessWidget {
                   title: Text('${state.user?.surname} ${state.user?.name}'),
                   subtitle: Text('+993 ${state.user?.username}'),
                   trailing: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<AuthenticationBloc>(
+                        context,
+                        listen: false,
+                      ).add(LogoutRequested());
+                      // context.read<AuthenticationBloc>().add(LogoutRequested());
+                      BlocProvider.of<CartBloc>(
+                        context,
+                        listen: false,
+                      ).add(CartRequested());
+
+                      BlocProvider.of<FavoritesBloc>(
+                        context,
+                        listen: false,
+                      ).add(FavoritesRequested());
+                    },
                     icon: const Icon(Icons.logout_rounded),
                   ),
                 ),
@@ -46,7 +63,6 @@ class ProfileContent extends StatelessWidget {
               /// Authentication
               return AppCard(
                 onPressed: () {
-                  final l10n = context.l10n;
                   Navigator.of(context).push(AuthPage.route());
                 },
                 padding: EdgeInsets.zero,
