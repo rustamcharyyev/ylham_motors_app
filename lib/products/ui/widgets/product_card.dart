@@ -12,8 +12,8 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     required this.product,
     this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final ProductItem product;
   final VoidCallback? onPressed;
@@ -52,17 +52,21 @@ class ProductCard extends StatelessWidget {
                 FittedBox(
                   child: Row(
                     children: [
-                      Text(product.price ?? '',
-                          style: const AppTextStyle.text().md().bold()),
+                      Text(
+                        product.discountedPrice ?? product.price ?? '',
+                        style: const AppTextStyle.text().md().bold(),
+                      ),
                       if (product.discountedPrice != null) ...[
                         const SizedBox(width: AppSpacing.sm),
                         Text(
-                          product.discountedPrice?.toString() ?? '',
+                          product.price?.toString() ?? '',
                           style: const AppTextStyle.text()
                               .sm()
                               .bold()
                               .withColor(Colors.grey.shade600)
-                              .copyWith(decoration: TextDecoration.lineThrough),
+                              .copyWith(
+                                decoration: TextDecoration.lineThrough,
+                              ),
                         ),
                       ],
                     ],

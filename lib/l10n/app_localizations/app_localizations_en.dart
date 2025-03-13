@@ -245,4 +245,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get masters => 'Masters';
+
+  @override
+  String get proportionalPrice => 'Product price';
+
+  @override
+  String get discountedPrice => 'Discount price';
+
+  @override
+  String get createdAt => 'Created at';
+
+  @override
+  String get productAmount => 'Product amount';
+
+  @override
+  String get orderStatus => 'Order status';
+
+  @override
+  String get orderId => 'Order id';
 }

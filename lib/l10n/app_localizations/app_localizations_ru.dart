@@ -245,4 +245,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get masters => 'Мастера';
+
+  @override
+  String get proportionalPrice => 'Цена продукта';
+
+  @override
+  String get discountedPrice => 'Цена со скидкой';
+
+  @override
+  String get createdAt => 'Создано в';
+
+  @override
+  String get productAmount => 'Количество товара';
+
+  @override
+  String get orderStatus => 'Статус заказа';
+
+  @override
+  String get orderId => 'ID заказа';
 }

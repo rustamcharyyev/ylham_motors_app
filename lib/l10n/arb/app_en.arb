@@ -114,5 +114,11 @@
     "products": "Products",
     "otpVerification": "OTP verification",
     "checkOut": "Check out",
-    "masters": "Masters"
+    "masters": "Masters",
+    "proportionalPrice": "Product price",
+    "discountedPrice": "Discount price",
+    "createdAt": "Created at",
+    "productAmount": "Product amount",
+    "orderStatus": "Order status",
+    "orderId": "Order id"
 }

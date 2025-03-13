@@ -33,10 +33,9 @@ void main() {
     // final token = await tokenStorage.readToken();
     if (kDebugMode) {
       tokenStorage.clearToken();
-      tokenStorage.saveToken('63|jOy8lcSo7RmsFOp0K5MO6M5GXovEFyWPFQLtoTL2');
+      tokenStorage.saveToken('56|47zAtTw9HnyzzLQC0nN4LMacMBkbgfiBdqHGvaFH');
       // tokenStorage.saveToken('58|KuJIYk7d9pJjsKKwdG5JUFySFqBepeNo3PxDmZPF');
     }
-    const secureoStorage = SecureStorage();
 
     /// intialization of package_info
     // final packageInfo = await PackageInfo.fromPlatform();

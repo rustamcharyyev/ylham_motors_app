@@ -576,6 +576,42 @@ abstract class AppLocalizations {
   /// In tk, this message translates to:
   /// **'Ussalar'**
   String get masters;
+
+  /// No description provided for @proportionalPrice.
+  ///
+  /// In tk, this message translates to:
+  /// **'Önüm bahasy'**
+  String get proportionalPrice;
+
+  /// No description provided for @discountedPrice.
+  ///
+  /// In tk, this message translates to:
+  /// **'Arzanladyş bahasy'**
+  String get discountedPrice;
+
+  /// No description provided for @createdAt.
+  ///
+  /// In tk, this message translates to:
+  /// **'Döredildi'**
+  String get createdAt;
+
+  /// No description provided for @productAmount.
+  ///
+  /// In tk, this message translates to:
+  /// **'Önümiň mukdary'**
+  String get productAmount;
+
+  /// No description provided for @orderStatus.
+  ///
+  /// In tk, this message translates to:
+  /// **'Sargyt ýagdaýy'**
+  String get orderStatus;
+
+  /// No description provided for @orderId.
+  ///
+  /// In tk, this message translates to:
+  /// **'Sargyt id'**
+  String get orderId;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

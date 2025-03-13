@@ -114,5 +114,11 @@
     "products": "Продукты",
     "otpVerification": "OTP-верификация",
     "checkOut": "Оформление заказа",
-    "masters": "Мастера"
+    "masters": "Мастера",
+    "proportionalPrice": "Цена продукта",
+    "discountedPrice": "Цена со скидкой",
+    "createdAt": "Создано в",
+    "productAmount": "Количество товара",
+    "orderStatus": "Статус заказа",
+    "orderId": "ID заказа"
 }

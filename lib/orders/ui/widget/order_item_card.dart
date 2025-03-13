@@ -15,19 +15,19 @@ class OrderItemCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('ID: ${order.id}'),
+          Text('${context.l10n.orderId}: ${order.id}'),
           Text(
-            'STATUS: '
+            '${context.l10n.orderStatus}: '
             '${order.status.name(context.l10n.localeName)}',
           ),
           Text('${context.l10n.totalCost}: ${order.totalPrice}'),
-          Text('Product amount: ${order.productsAmount}'),
+          Text('${context.l10n.productAmount}: ${order.productsAmount}'),
           SizedBox(
             height: 340,
             width: double.maxFinite,
             child: HorizontalProductList(products: order.products),
           ),
-          Text('Created at: ${order.createdAt}'),
+          Text('${context.l10n.createdAt}: ${order.createdAt}'),
         ],
       ),
     );

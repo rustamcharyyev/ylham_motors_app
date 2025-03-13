@@ -114,5 +114,11 @@
     "products": "Harytlar",
     "otpVerification": "OTP tassyklamasy",
     "checkOut": "Töleg",
-    "masters": "Ussalar"
+    "masters": "Ussalar",
+    "proportionalPrice": "Önüm bahasy",
+    "discountedPrice": "Arzanladyş bahasy",
+    "createdAt": "Döredildi",
+    "productAmount": "Önümiň mukdary",
+    "orderStatus": "Sargyt ýagdaýy",
+    "orderId": "Sargyt id"
 }

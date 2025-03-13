@@ -17,9 +17,40 @@ class ProductsContent extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.md).copyWith(bottom: 0),
           child: AppCard(
-            child: Text(
-              headerText,
-              style: const AppTextStyle.text().xs().semiBold(),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  headerText,
+                  style: const AppTextStyle.text().xs().semiBold(),
+                ),
+                if (category != null &&
+                    category.children != null &&
+                    category.children!.isNotEmpty) ...[
+                  SizedBox(height: 10),
+                  SizedBox(
+                    height: 46,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: category.children!
+                          .map(
+                            (e) => AppCard(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  ProductsPage.route(
+                                    category: e,
+                                  ),
+                                );
+                              },
+                              child: Text(e.name ?? ''),
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  )
+                ]
+              ],
             ),
           ),
         ),
@@ -70,7 +101,7 @@ class ProductSearchField extends HookWidget {
     final isSearchEmpty = useState(true);
     final controller = useSearchController();
 
-    final shape = MaterialStatePropertyAll(
+    final shape = WidgetStatePropertyAll(
       RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppSpacing.sm),
       ),
@@ -86,11 +117,12 @@ class ProductSearchField extends HookWidget {
             return SearchBar(
               controller: controller,
               backgroundColor:
-                  MaterialStatePropertyAll(AppColors.primary.shade100),
-              elevation: const MaterialStatePropertyAll(0),
+                  WidgetStatePropertyAll(AppColors.primary.shade100),
+              elevation: const WidgetStatePropertyAll(0),
               shape: shape,
-              padding: const MaterialStatePropertyAll<EdgeInsets>(
-                  EdgeInsets.symmetric(horizontal: 16.0)),
+              padding: const WidgetStatePropertyAll<EdgeInsets>(
+                EdgeInsets.symmetric(horizontal: 16.0),
+              ),
               onTap: () {
                 // controller.openView();
               },

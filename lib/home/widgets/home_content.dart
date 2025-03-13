@@ -34,47 +34,52 @@ class HomeContent extends StatelessWidget {
       );
     });
 
-    return CustomScrollView(
-      slivers: [
-        if (sliders.isNotEmpty)
-          SliverToBoxAdapter(
-            child: BannerAdsSlider(
-              imageUrls: sliders.map<String?>((e) => e.image).nonNulls,
-            ),
-          )
-        else
-          const SliverToBoxAdapter(
-            child: SizedBox(height: AppSpacing.md),
-          ),
-
-        /// Store products
-        if (appSource == AppSource.store) ...[
-          if (isLoading)
-            const SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  SizedBox(height: AppSpacing.md),
-                  CircularProgressIndicator(),
-                ],
+    return RefreshIndicator(
+      onRefresh: () async {
+        BlocProvider.of<HomeBloc>(context).add(HomeRequested());
+      },
+      child: CustomScrollView(
+        slivers: [
+          if (sliders.isNotEmpty)
+            SliverToBoxAdapter(
+              child: BannerAdsSlider(
+                imageUrls: sliders.map<String?>((e) => e.image).nonNulls,
               ),
+            )
+          else
+            const SliverToBoxAdapter(
+              child: SizedBox(height: AppSpacing.md),
             ),
 
-          /// Category products
-          ...categoryWidgets,
+          /// Store products
+          if (appSource == AppSource.store) ...[
+            if (isLoading)
+              const SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    SizedBox(height: AppSpacing.md),
+                    CircularProgressIndicator(),
+                  ],
+                ),
+              ),
 
-          // ProductGrid(
-          //   productsLength: 10,
-          //   onPressed: () {
-          //     Navigator.of(context).push(DetailedProductPage.route());
-          //   },
-          // ),
-        ],
+            /// Category products
+            ...categoryWidgets,
 
-        /// Masters
-        if (appSource == AppSource.masters) ...[
-          const MastersListView.sliver(),
+            // ProductGrid(
+            //   productsLength: 10,
+            //   onPressed: () {
+            //     Navigator.of(context).push(DetailedProductPage.route());
+            //   },
+            // ),
+          ],
+
+          /// Masters
+          if (appSource == AppSource.masters) ...[
+            const MastersListView.sliver(),
+          ],
         ],
-      ],
+      ),
     );
   }
 }

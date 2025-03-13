@@ -33,14 +33,19 @@ class OrderListView extends StatelessWidget {
       appBar: AppBar(
         title: Text(context.l10n.orders),
       ),
-      body: ListView.separated(
-        padding: const EdgeInsets.all(AppSpacing.md),
-        physics: const AlwaysScrollableScrollPhysics(),
-        itemCount: orders.length,
-        separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
-        itemBuilder: (context, index) {
-          return OrderItemCard(order: orders[index]);
+      body: RefreshIndicator(
+        onRefresh: () async {
+          BlocProvider.of<OrderBloc>(context).add(OrdersRequested());
         },
+        child: ListView.separated(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          physics: const AlwaysScrollableScrollPhysics(),
+          itemCount: orders.length,
+          separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
+          itemBuilder: (context, index) {
+            return OrderItemCard(order: orders[index]);
+          },
+        ),
       ),
     );
   }

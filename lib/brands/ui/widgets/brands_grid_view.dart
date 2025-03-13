@@ -56,11 +56,16 @@ class BrandsGridView extends StatelessWidget {
     }
 
     /// NORMAL GRID VIEW
-    return GridView.builder(
-      padding: padding,
-      gridDelegate: gridDelegate,
-      itemCount: brands.length,
-      itemBuilder: (context, index) => itemBuilder(context, brands, index),
+    return RefreshIndicator(
+      onRefresh: () async {
+        BlocProvider.of<BrandsBloc>(context).add(BrandsRequested());
+      },
+      child: GridView.builder(
+        padding: padding,
+        gridDelegate: gridDelegate,
+        itemCount: brands.length,
+        itemBuilder: (context, index) => itemBuilder(context, brands, index),
+      ),
     );
   }
 }

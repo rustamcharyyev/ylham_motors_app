@@ -4,10 +4,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:data_provider/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:ylham_motors/cart/cart.dart';
 import 'package:ylham_motors/detailed_product/detailed_product.dart';
 import 'package:ylham_motors/favorites/favorites.dart';
 import 'package:ylham_motors/home/home.dart';
+import 'package:ylham_motors/l10n/l10n.dart';
 import 'package:ylham_motors/products/products.dart';
 
 class DetailedProductContent extends StatefulWidget {
@@ -35,12 +37,12 @@ class _DetailedProductContentState extends State<DetailedProductContent> {
     final products = categoryProducts[category.id];
 
     final properties = [
-      if (product.id != null) ('id', product.id),
-      if (product.rating != null) ('rating', product.rating),
+      // if (product.id != null) ('id', product.id),
+      // if (product.rating != null) ('rating', product.rating),
       if (product.proportionalPrice != null)
-        ('proportionalPrice', product.proportionalPrice),
+        (context.l10n.proportionalPrice, product.proportionalPrice),
       if (product.discountedPrice != null)
-        ('discountedPrice', product.discountedPrice),
+        (context.l10n.discountedPrice, product.discountedPrice),
     ];
 
     return SingleChildScrollView(
@@ -139,9 +141,8 @@ class _DetailedProductContentState extends State<DetailedProductContent> {
             ),
 
             /// DESCRIPTION
-            Text(
+            HtmlWidget(
               product.description ?? '',
-              style: const AppTextStyle.text().md().medium(),
             ),
 
             const SizedBox(height: AppSpacing.md),
@@ -154,7 +155,7 @@ class _DetailedProductContentState extends State<DetailedProductContent> {
                 Expanded(
                   flex: 8,
                   child: Text(
-                    product.price ?? '',
+                    product.discountedPrice ?? product.price ?? '',
                     style: const AppTextStyle.text().lg().bold(),
                   ),
                 ),

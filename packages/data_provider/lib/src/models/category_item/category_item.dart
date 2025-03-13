@@ -10,12 +10,15 @@ class CategoryItem {
     this.id,
     this.name,
     this.image,
+    this.children,
   });
 
   final int? id;
   final String? name;
   final String? image;
+  final List<CategoryItem>? children;
 
   Map<String, dynamic> toJson() => _$CategoryItemToJson(this);
-  factory CategoryItem.fromJson(Map<String, dynamic> json) => _$CategoryItemFromJson(json);
+  factory CategoryItem.fromJson(Map<String, dynamic> json) =>
+      _$CategoryItemFromJson(json);
 }

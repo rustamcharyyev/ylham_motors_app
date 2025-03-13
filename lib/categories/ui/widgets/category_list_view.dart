@@ -8,16 +8,22 @@ class CategoryListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categories = context.select((CategoriesBloc bloc) => bloc.state.categories);
+    final categories =
+        context.select((CategoriesBloc bloc) => bloc.state.categories);
 
-    return ListView.separated(
-      padding: const EdgeInsets.all(AppSpacing.md),
-      physics: const AlwaysScrollableScrollPhysics(),
-      itemCount: categories.length,
-      separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
-      itemBuilder: (context, index) {
-        return CategoriesItemCard(category: categories[index]);
+    return RefreshIndicator(
+      onRefresh: () async {
+        BlocProvider.of<CategoriesBloc>(context).add(CategoriesRequested());
       },
+      child: ListView.separated(
+        padding: const EdgeInsets.all(AppSpacing.md),
+        physics: const AlwaysScrollableScrollPhysics(),
+        itemCount: categories.length,
+        separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
+        itemBuilder: (context, index) {
+          return CategoriesItemCard(category: categories[index]);
+        },
+      ),
     );
   }
 }

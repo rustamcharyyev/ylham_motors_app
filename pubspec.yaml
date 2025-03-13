@@ -2,7 +2,7 @@ name: ylham_motors
 description: "Ylham Motors commerce app"
 publish_to: 'none'
 
-version: 1.0.1+2
+version: 1.0.3+4
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
@@ -47,6 +47,7 @@ dependencies:
   hive_flutter: ^1.1.0
   turkmen_localization_support: ^0.0.8
   carousel_slider: ^5.0.0
+  flutter_widget_from_html: ^0.16.0
   
 dev_dependencies:
   build_runner: ^2.4.6

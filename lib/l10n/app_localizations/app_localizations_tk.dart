@@ -245,4 +245,22 @@ class AppLocalizationsTk extends AppLocalizations {
 
   @override
   String get masters => 'Ussalar';
+
+  @override
+  String get proportionalPrice => 'Önüm bahasy';
+
+  @override
+  String get discountedPrice => 'Arzanladyş bahasy';
+
+  @override
+  String get createdAt => 'Döredildi';
+
+  @override
+  String get productAmount => 'Önümiň mukdary';
+
+  @override
+  String get orderStatus => 'Sargyt ýagdaýy';
+
+  @override
+  String get orderId => 'Sargyt id';
 }
