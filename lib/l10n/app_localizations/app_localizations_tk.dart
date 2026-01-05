@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Turkmen (`tk`).
 class AppLocalizationsTk extends AppLocalizations {
@@ -8,7 +12,8 @@ class AppLocalizationsTk extends AppLocalizations {
   String get networkError => 'Internet birikmesi ýok.';
 
   @override
-  String get networkErrorDescription => 'Birnäçe wagtdan soň synanyşmagyňyzy Sizden haýyş edýäris.';
+  String get networkErrorDescription =>
+      'Birnäçe wagtdan soň synanyşmagyňyzy Sizden haýyş edýäris.';
 
   @override
   String get networkErrorButton => 'Gaýtadan synanyşyň';
@@ -80,13 +85,15 @@ class AppLocalizationsTk extends AppLocalizations {
   String get ordersEmptyTitle => 'Sargyt ýok';
 
   @override
-  String get ordersEmptyDescription => 'Sargytlaryňyzyň sanawy şu ýerde görkeziler';
+  String get ordersEmptyDescription =>
+      'Sargytlaryňyzyň sanawy şu ýerde görkeziler';
 
   @override
   String get favoritesEmptyTitle => 'Halanlarym ýok';
 
   @override
-  String get favoritesEmptyDescription => 'Halanlaryňyzyň sanawy şu ýerde görkeziler';
+  String get favoritesEmptyDescription =>
+      'Halanlaryňyzyň sanawy şu ýerde görkeziler';
 
   @override
   String get productSize => 'Ölçegi';
@@ -107,7 +114,8 @@ class AppLocalizationsTk extends AppLocalizations {
   String get checkOutCompleteTitle => 'Sargydyňyz ýerleşdirildi';
 
   @override
-  String get checkOutCompleteContent => 'Operator Size jaň eder sargydyňyzy tassyklamak üçin jaň eder!';
+  String get checkOutCompleteContent =>
+      'Operator Size jaň eder sargydyňyzy tassyklamak üçin jaň eder!';
 
   @override
   String get deliveryTariffTitle => 'Eltip berme görnüşi';
@@ -146,10 +154,12 @@ class AppLocalizationsTk extends AppLocalizations {
   String get orderNotes => 'Sargyt üçin bellik';
 
   @override
-  String get orderNotesDescription => 'Ýörite haýyşlar, ýa-da eltip berme üçin bellikler';
+  String get orderNotesDescription =>
+      'Ýörite haýyşlar, ýa-da eltip berme üçin bellikler';
 
   @override
-  String get orderNotesDescription2 => 'Ýörite haýyşlar, allergiýa, iýmitleniş çäklendirmeleri';
+  String get orderNotesDescription2 =>
+      'Ýörite haýyşlar, allergiýa, iýmitleniş çäklendirmeleri';
 
   @override
   String get selectAddress => 'Salgyňyzy saýlan';
@@ -167,7 +177,8 @@ class AppLocalizationsTk extends AppLocalizations {
   String get cartClearTitle => 'Pozmagy tassyklaň';
 
   @override
-  String get cartClearContent => 'Tassyklamak düwmesine basylanyndan soňra sebediňizdäki harytlary gaýtadan dikeltmek mümkin däldir.';
+  String get cartClearContent =>
+      'Tassyklamak düwmesine basylanyndan soňra sebediňizdäki harytlary gaýtadan dikeltmek mümkin däldir.';
 
   @override
   String get cartEmptyTitle => 'Sebet boş';

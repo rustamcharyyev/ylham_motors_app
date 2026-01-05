@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for English (`en`).
 class AppLocalizationsEn extends AppLocalizations {
@@ -107,7 +111,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkOutCompleteTitle => 'Order Placed';
 
   @override
-  String get checkOutCompleteContent => 'An operator will contact you to confirm the order!';
+  String get checkOutCompleteContent =>
+      'An operator will contact you to confirm the order!';
 
   @override
   String get deliveryTariffTitle => 'Delivery Type';
@@ -146,10 +151,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderNotes => 'Order Notes';
 
   @override
-  String get orderNotesDescription => 'Additional instructions or notes for the order';
+  String get orderNotesDescription =>
+      'Additional instructions or notes for the order';
 
   @override
-  String get orderNotesDescription2 => 'Additional instructions, allergies, preferences';
+  String get orderNotesDescription2 =>
+      'Additional instructions, allergies, preferences';
 
   @override
   String get selectAddress => 'Select Address';
@@ -167,7 +174,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cartClearTitle => 'Clear Cart';
 
   @override
-  String get cartClearContent => 'After pressing the confirm button, you will not be able to recover the items in the cart.';
+  String get cartClearContent =>
+      'After pressing the confirm button, you will not be able to recover the items in the cart.';
 
   @override
   String get cartEmptyTitle => 'Cart is Empty';

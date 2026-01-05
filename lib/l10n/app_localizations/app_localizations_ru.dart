@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Russian (`ru`).
 class AppLocalizationsRu extends AppLocalizations {
@@ -8,7 +12,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get networkError => 'Нет подключения к Интернету.';
 
   @override
-  String get networkErrorDescription => 'Пожалуйста, попробуйте еще раз через некоторое время.';
+  String get networkErrorDescription =>
+      'Пожалуйста, попробуйте еще раз через некоторое время.';
 
   @override
   String get networkErrorButton => 'Попробовать снова';
@@ -44,7 +49,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get technicalSupportTitle => 'Техническая поддержка';
 
   @override
-  String get technicalSupportDescription => 'Свяжитесь с нами для решения вопросов';
+  String get technicalSupportDescription =>
+      'Свяжитесь с нами для решения вопросов';
 
   @override
   String get manageAddressesTitle => 'Управление адресами';
@@ -107,7 +113,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get checkOutCompleteTitle => 'Заказ размещен';
 
   @override
-  String get checkOutCompleteContent => 'Оператор свяжется с вами для подтверждения заказа!';
+  String get checkOutCompleteContent =>
+      'Оператор свяжется с вами для подтверждения заказа!';
 
   @override
   String get deliveryTariffTitle => 'Тип доставки';
@@ -146,10 +153,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get orderNotes => 'Примечания к заказу';
 
   @override
-  String get orderNotesDescription => 'Дополнительные инструкции или примечания к заказу';
+  String get orderNotesDescription =>
+      'Дополнительные инструкции или примечания к заказу';
 
   @override
-  String get orderNotesDescription2 => 'Дополнительные инструкции, аллергии, предпочтения';
+  String get orderNotesDescription2 =>
+      'Дополнительные инструкции, аллергии, предпочтения';
 
   @override
   String get selectAddress => 'Выберите адрес';
@@ -167,13 +176,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get cartClearTitle => 'Очистить корзину';
 
   @override
-  String get cartClearContent => 'После нажатия кнопки подтверждения вы не сможете восстановить товары в корзине.';
+  String get cartClearContent =>
+      'После нажатия кнопки подтверждения вы не сможете восстановить товары в корзине.';
 
   @override
   String get cartEmptyTitle => 'Корзина пуста';
 
   @override
-  String get cartEmptyDescription => 'Здесь отображаются товары в вашей корзине';
+  String get cartEmptyDescription =>
+      'Здесь отображаются товары в вашей корзине';
 
   @override
   String get placeAnOrder => 'Оформить заказ';
@@ -194,7 +205,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get productsEmptyTitle => 'Товары не найдены';
 
   @override
-  String get productsEmptyDescription => 'В настоящее время товары отсутствуют.';
+  String get productsEmptyDescription =>
+      'В настоящее время товары отсутствуют.';
 
   @override
   String get home => 'Главная';

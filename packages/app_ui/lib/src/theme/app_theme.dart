@@ -46,8 +46,6 @@ class AppTheme {
       onSecondary: Colors.white,
       error: Colors.red,
       onError: Colors.white,
-      background: Color(0xFFFAFAFA),
-      onBackground: Colors.black,
       surface: Colors.white,
       onSurface: Colors.black,
       tertiary: AppColors.tertiary,
@@ -187,8 +185,8 @@ class AppTheme {
       iconColor: AppColors.primary,
       suffixIconColor: AppColors.primary,
       prefixIconColor: AppColors.primary,
-      hoverColor: AppColors.primary.shade100.withOpacity(0.5),
-      focusColor: AppColors.primary.shade100.withOpacity(0.2),
+      hoverColor: AppColors.primary.shade100.withValues(alpha: .5),
+      focusColor: AppColors.primary.shade100.withValues(alpha: .2),
       labelStyle:
           const AppTextStyle.text().sm().withColor(AppColors.primary.shade500),
       contentPadding: const EdgeInsets.all(AppSpacing.lg),
@@ -282,8 +280,8 @@ class AppTheme {
   //   );
   // }
 
-  TabBarTheme get _tabBarTheme {
-    return const TabBarTheme(
+  TabBarThemeData get _tabBarTheme {
+    return const TabBarThemeData(
       // labelStyle: ,
       labelColor: AppColors.white,
       indicatorColor: AppColors.white,
