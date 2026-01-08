@@ -51,7 +51,9 @@ Future<void> bootstrap(AppBuilder builder) async {
       );
       Bloc.observer = blocObserver;
       HydratedBloc.storage = await HydratedStorage.build(
-        storageDirectory: await getApplicationSupportDirectory(),
+        storageDirectory: HydratedStorageDirectory(
+          (await getApplicationDocumentsDirectory()).path,
+        ),
       );
 
       /// Hive Box

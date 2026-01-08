@@ -70,7 +70,7 @@ class ProductSearchField extends HookWidget {
     final isSearchEmpty = useState(true);
     final controller = useSearchController();
 
-    final shape = MaterialStatePropertyAll(
+    final shape = WidgetStatePropertyAll(
       RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppSpacing.sm),
       ),
@@ -86,10 +86,10 @@ class ProductSearchField extends HookWidget {
             return SearchBar(
               controller: controller,
               backgroundColor:
-                  MaterialStatePropertyAll(AppColors.primary.shade100),
-              elevation: const MaterialStatePropertyAll(0),
+                  WidgetStatePropertyAll(AppColors.primary.shade100),
+              elevation: const WidgetStatePropertyAll(0),
               shape: shape,
-              padding: const MaterialStatePropertyAll<EdgeInsets>(
+              padding: const WidgetStatePropertyAll<EdgeInsets>(
                   EdgeInsets.symmetric(horizontal: 16.0)),
               onTap: () {
                 // controller.openView();

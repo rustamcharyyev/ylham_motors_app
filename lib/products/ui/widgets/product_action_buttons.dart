@@ -11,8 +11,8 @@ class ProductActionButtons extends StatelessWidget {
     required this.quantity,
     required this.onFavoritePressed,
     required this.onQuantityUpdated,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int quantity;
   final int productId;

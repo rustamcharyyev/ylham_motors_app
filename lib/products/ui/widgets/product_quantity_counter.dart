@@ -7,8 +7,8 @@ class ProductQuantityCounter extends StatelessWidget {
   const ProductQuantityCounter({
     required this.quantity,
     required this.onQuantityUpdated,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int quantity;
   final QuantityUpdateCallback onQuantityUpdated;

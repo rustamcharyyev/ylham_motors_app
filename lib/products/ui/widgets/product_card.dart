@@ -12,8 +12,8 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     required this.product,
     this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final ProductItem product;
   final VoidCallback? onPressed;
